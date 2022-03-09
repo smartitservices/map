@@ -5,10 +5,20 @@ apt-get install bind9 bind9utils bind9-doc -y
 
 touch /etc/bind/named.conf.options
 cat << EOF > /etc/bind/named.conf.options
+
+acl privateips {
+    	10.0.0.0/8;
+    	172.16.0.0/12;
+    	192.168.0.0/16;
+        localhost;
+        localnets;
+};
+
 options {
         directory "/var/cache/bind";
 
         recursion yes;
+        allow-query { privateips; };
 
         forwarders {
                 168.63.129.16;
