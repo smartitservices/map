@@ -1,5 +1,6 @@
-apt-get update
-apt-get install bind9 bind9utils bind9-doc
+apt-get update -y 
+apt-get upgrade -y
+apt-get install -y bind9 bind9utils bind9-doc
 
 touch /etc/bind/named.conf.options
 cat << EOF > /etc/bind/named.conf.options
