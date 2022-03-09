@@ -23,8 +23,9 @@ options {
         forwarders {
                 168.63.129.16;
         };
-
-        dnssec-validation auto;
+        forward only;
+        
+        dnssec-validation no;
 
         auth-nxdomain no;    # conform to RFC1035
         listen-on-v6 { any; };
