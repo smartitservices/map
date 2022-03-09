@@ -9,7 +9,6 @@ options {
         directory "/var/cache/bind";
 
         recursion yes;
-        allow-query { goodclients; };
 
         forwarders {
                 168.63.129.16;
