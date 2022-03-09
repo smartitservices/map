@@ -22,4 +22,11 @@ options {
 };
 EOF
 
-sudo named -t && sudo service named restart
+sudo named-checkconf /etc/bind/named.conf.local
+
+sudo ufw allow in ssh
+sudo ufw allow from any to any port 53 proto tcp
+sudo ufw allow from any to any port 53 proto udp
+
+sudo systemctl enable named
+sudo systemctl restart named
